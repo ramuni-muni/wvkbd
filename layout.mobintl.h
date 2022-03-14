@@ -4,7 +4,7 @@
 #define KBD_PIXEL_HEIGHT 240
 
 /* how tall the keyboard should be by default (can be overriden) */
-#define KBD_PIXEL_LANDSCAPE_HEIGHT 120
+#define KBD_PIXEL_LANDSCAPE_HEIGHT 115
 
 /* if your layout leaves an empty margin, increase this to fix it */
 #define KBD_PIXEL_OVERSCAN_WIDTH 5
@@ -489,33 +489,43 @@ static struct key keys_cyrillic[] = {
 };
 
 static struct key keys_arabic[] = {
+  {"ذ", "ّ", 1.0, Code, KEY_GRAVE},
   {"١", "!", 1.0, Code, KEY_1},
   {"٢", "@", 1.0, Code, KEY_2},
   {"٣", "#", 1.0, Code, KEY_3},
-  {"٤", ";", 1.0, Code, KEY_4},
+  {"٤", "$", 1.0, Code, KEY_4},
   {"٥", "%", 1.0, Code, KEY_5},
-  {"٦", ":", 1.0, Code, KEY_6},
+  {"٦", "^", 1.0, Code, KEY_6},
   {"٧", "&", 1.0, Code, KEY_7},
   {"٨", "*", 1.0, Code, KEY_8},
   {"٩", "(", 1.0, Code, KEY_9},
   {"٠", ")", 1.0, Code, KEY_0},
+  {"-", "_", 1.0, Code, KEY_MINUS},
+  {"=", "+", 1.0, Code, KEY_EQUAL},
+  {"⌫", "⌫", 1.4, Code, KEY_BACKSPACE},
   {"", "", 0.0, EndRow},
+  
+   {"Tab", "tab", 1.2, Code, KEY_TAB},
 
-  {"ض", "ـَ", 1.0, Code, KEY_Q},
-  {"ص", "ـً", 1.0, Code, KEY_W},
-  {"ث", "ـُ", 1.0, Code, KEY_E},
-  {"ق", "ـٌ", 1.0, Code, KEY_R},
+  {"ض", "َ", 1.0, Code, KEY_Q},
+  {"ص", "ً", 1.0, Code, KEY_W},
+  {"ث", "ُ", 1.0, Code, KEY_E},
+  {"ق", "ٌ", 1.0, Code, KEY_R},
   {"ف", "ﻹ", 1.0, Code, KEY_T},
   {"غ", "إ", 1.0, Code, KEY_Y},
   {"ع", "`", 1.0, Code, KEY_U},
-  {"ه", "", 1.0, Code, KEY_I},
-  {"ج", ";", 1.0, Code, KEY_O},
-  {"ح", "", 1.0, Code, KEY_P},
-  {"خ", "<", 1.0, Code, KEY_LEFTBRACE},
+  {"ه", "÷", 1.0, Code, KEY_I},
+  {"خ", "×", 1.0, Code, KEY_O},
+  {"ح", "؛", 1.0, Code, KEY_P},
+  {"ج", "<", 1.0, Code, KEY_LEFTBRACE},
+  {"د", ">", 1.0, Code, KEY_RIGHTBRACE},
+  {"Enter", "Enter", 1.2, Code, KEY_ENTER, .scheme = 1},
   {"", "", 0.0, EndRow},
+  
+  {"Shift", "Shift", 1.4, Mod, Shift, .scheme = 1},
 
-  {"ش", "ـِ", 1.0, Code, KEY_A},
-  {"س", "ـٍ", 1.0, Code, KEY_S},
+  {"ش", "ِ", 1.0, Code, KEY_A},
+  {"س", "ٍ", 1.0, Code, KEY_S},
   {"ي", "]", 1.0, Code, KEY_D},
   {"ب", "[", 1.0, Code, KEY_F},
   {"ل", "ﻷ", 1.0, Code, KEY_G},
@@ -525,28 +535,25 @@ static struct key keys_arabic[] = {
   {"م", "/", 1.0, Code, KEY_L},
   {"ك", ":", 1.0, Code, KEY_SEMICOLON},
   {"ط", "\"", 1.0, Code, KEY_APOSTROPHE},
+  {"", "", 1.0, Code, KEY_BACKSLASH},
+  {"Enter", "Enter", 1.4, Code, KEY_ENTER, .scheme = 1},
   {"", "", 0.0, EndRow},
-
+ 
+ {"Shift", "Shift", 1.5, Mod, Shift, .scheme = 1},
   {"ذ", "~", 1.0, Code, KEY_Z},
-  {"ء", "ـْ", 1.0, Code, KEY_X},
+  {"ء", "ْ", 1.0, Code, KEY_X},
   {"ؤ", "}", 1.0, Code, KEY_C},
   {"ر", "{", 1.0, Code, KEY_V},
-  {"ى", "ﻵ", 1.0, Code, KEY_B},
+  {"ﻻ", "ﻵ", 1.0, Code, KEY_B},
   {"ة", "'", 1.0, Code, KEY_N},
-  {"و", ",", 1.0, Code, KEY_M},
-  {"ز", "؟", 1.0, Code, KEY_COMMA},
-  {"ظ", ".", 1.0, Code, KEY_DOT},
-  {"د", ">", 1.0, Code, KEY_RIGHTBRACE},
-  {"⌫", "⌫", 1.0, Code, KEY_BACKSPACE, .scheme = 1},
-
+  {"و", ",", 1.0, Code, KEY_M,},
+  {"ظ", "؟", 1.0, Code, KEY_COMMA},
+  {"ز", ".", 1.0, Code, KEY_DOT},
+ 
+  
+ {"Shift", "Shift", 1.5, Mod, Shift, .scheme = 1},
   {"", "", 0.0, EndRow},
-
-  {"Abc", "Abc", 1.0, NextLayer, .scheme = 1},
-  {"⇧", "⇧", 1.0, Mod, Shift, .scheme = 1},
-  {"Cmp", "Cmp", 1.0, Compose, .scheme = 1},
-  {"", "", 5.0, Code, KEY_SPACE},
-  {"Enter", "Enter", 2.0, Code, KEY_ENTER, .scheme = 1},
-
+  {"space", "space", 5.0, Code, KEY_SPACE},
   /* end of layout */
   {"", "", 0.0, Last},
 };
